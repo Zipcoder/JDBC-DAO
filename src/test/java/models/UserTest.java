@@ -27,6 +27,11 @@ public class UserTest {
 
     @Test
     public void setId() {
+        Integer actual = 6;
+        testUser.setId(actual);
+        Integer expected = testUser.getId();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
