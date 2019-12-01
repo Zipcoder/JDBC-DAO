@@ -1,13 +1,14 @@
 package daos;
 
+import models.User;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class DAOTest {
 
     DAO testDao;
+
 
     @Before
     public void setUp() throws Exception {
@@ -17,6 +18,8 @@ public class DAOTest {
 
     @Test
     public void findById() {
+        User expected = testDao.findById(4);
+        Assert.assertEquals("Nedda",expected.getName());
     }
 
     @Test
