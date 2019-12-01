@@ -7,7 +7,7 @@ public class ConnectionFactory {
 
     public static final String URL = "jdbc:mysql://localhost:3306/myDB?autoReconnect=true&useSSL=false";
     public static final String USER = "root";
-    public static final String PASS = "tfoseraw";
+    public static final String PASS = "easy123";
 
 
     public static Connection getConnection() {
