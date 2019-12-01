@@ -7,8 +7,11 @@ import static org.junit.Assert.*;
 
 public class DAOTest {
 
+    DAO testDao;
+
     @Before
     public void setUp() throws Exception {
+        testDao = new DAO();
     }
 
 
