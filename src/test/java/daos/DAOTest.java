@@ -47,9 +47,20 @@ public class DAOTest {
 
     @Test
     public void createUser() {
+        User testUpdate = new User(19,"Mark",null,null,null);
+        testDao.createUser(testUpdate);
+        Integer expected = 11;
+        Integer actual = testDao.findAll().size();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void deleteUser() {
+        testDao.deleteUser(7);
+        Integer expected = 10;
+        Integer actual = testDao.findAll().size();
+
+        Assert.assertEquals(expected,actual);
     }
 }
