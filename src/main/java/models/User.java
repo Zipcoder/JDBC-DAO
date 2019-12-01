@@ -17,10 +17,12 @@ public class User implements DTO {
         this.pwd = pass;
     }
 
-    public User(Integer id, String name, String pass) {
+    public User(Integer id, String name, String pass, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.pwd = pass;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
 // --------- getters & setters -------------
