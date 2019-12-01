@@ -53,10 +53,18 @@ public class UserTest {
 
     @Test
     public void getPass() {
+        String expected = "testpass";
+        String actual = testUser.getPass();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void setPass() {
+        String expected = "secondpass";
+        testUser.setPass(expected);
+        String actual = testUser.getPass();
+
     }
 
     @Test
