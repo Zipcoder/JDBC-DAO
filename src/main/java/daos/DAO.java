@@ -57,6 +57,12 @@ public class DAO implements UserDAO {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return false;
     }
@@ -71,6 +77,12 @@ public class DAO implements UserDAO {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return false;
 
@@ -87,6 +99,12 @@ public class DAO implements UserDAO {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return false;
     }
