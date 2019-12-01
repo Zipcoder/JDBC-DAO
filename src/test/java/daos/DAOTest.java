@@ -35,6 +35,14 @@ public class DAOTest {
 
     @Test
     public void updateUser() {
+        String expected = "newpassword";
+        User testUpdate = new User(7,"Matilda",expected,null,null);
+        testDao.updateUser(testUpdate);
+
+        User updated = testDao.findById(7);
+        String actual = updated.getPass();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test

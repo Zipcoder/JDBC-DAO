@@ -123,7 +123,7 @@ public class DAO implements UserDAO {
     private PreparedStatement createStatement (StatementType stmtype, Connection connection, User dto) throws SQLException {
         PreparedStatement ps;
 
-        if (stmtype.getStatementType().equals( StatementType.INSERT)){
+        if (stmtype.getStatementType().equals("Insert")){
             ps = connection.prepareStatement("INSERT INTO user VALUES (NULL, ?, ?, ?,?)");
             ps.setString(1, dto.getName());
             ps.setString(2, dto.getPass());
@@ -133,13 +133,15 @@ public class DAO implements UserDAO {
             return ps;
         }
 
-        if (stmtype.getStatementType().equals( StatementType.UPDATE)){
+        if (stmtype.getStatementType().equals("Update")){
             ps = connection.prepareStatement("UPDATE user SET name=?, password=?, email=?, phone_number=? WHERE id=?");
             ps.setString(1, dto.getName());
             ps.setString(2, dto.getPass());
             ps.setString(3,dto.getEmail());
             ps.setString(4,dto.getPhoneNumber());
             ps.setInt(5, dto.getId());
+
+            return ps;
         }
         return null;
     }
