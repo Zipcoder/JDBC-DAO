@@ -69,10 +69,19 @@ public class UserTest {
 
     @Test
     public void getEmail() {
+        String expected = "joe@gmail.com";
+        String actual = testUser.getEmail();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void setEmail() {
+        String expected = "jane@gmail.com";
+        testUser.setEmail(expected);
+        String actual = testUser.getEmail();
+
+        Assert.assertEquals(expected,actual);
     }
 
 }
