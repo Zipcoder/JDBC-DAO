@@ -9,5 +9,5 @@ public interface UserDAO {
     List<User> findAll();
     Boolean updateUser (User dto);
     Boolean createUser (User dto);
-    void deleteUser (Integer id);
+    Boolean deleteUser (Integer id);
 }

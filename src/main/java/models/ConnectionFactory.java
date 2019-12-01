@@ -5,9 +5,9 @@ import java.sql.*;
 
 public class ConnectionFactory {
 
-    public static final String URL = "jdbc:mysql://localhost:3306/testdb";
-    public static final String USER = "testuser";
-    public static final String PASS = "testpass";
+    public static final String URL = "jdbc:mysql://localhost:3306/myDB";
+    public static final String USER = "root";
+    public static final String PASS = "tfoseraw";
 
 
     public static Connection getConnection() {
