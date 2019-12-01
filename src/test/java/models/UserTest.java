@@ -36,10 +36,19 @@ public class UserTest {
 
     @Test
     public void getName() {
+        String expected = "Joe";
+        String actual = testUser.getName();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void setName() {
+        String actual = "Jane";
+        testUser.setName(actual);
+        String expected = testUser.getName();
+
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
