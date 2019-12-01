@@ -84,4 +84,20 @@ public class UserTest {
         Assert.assertEquals(expected,actual);
     }
 
+    @Test
+    public void getPhoneNumber() {
+        String expected = "215-222-3333";
+        String actual = testUser.getPhoneNumber();
+
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void setPhoneNumber() {
+        String expected = "215-333-4444";
+        testUser.setPhoneNumber(expected);
+        String actual = testUser.getPhoneNumber();
+
+        Assert.assertEquals(expected,actual);
+    }
 }
