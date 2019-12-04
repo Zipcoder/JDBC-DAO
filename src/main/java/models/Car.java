@@ -10,8 +10,7 @@ public class Car {
 
 
     public Car() {
-        this.id = 0;
-        this.make =
+
     }
 
     public Car(int id, String make, String model, int year, String color, String vin) {
