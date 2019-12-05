@@ -1,6 +1,6 @@
-package models;
+package daos;
 
-public class Car {
+public class CarDTO implements DTO {
     Integer carId;
     String make;
     String model;
@@ -8,18 +8,18 @@ public class Car {
     String color;
     String vin;
 
-    public Car() {
+    public CarDTO() {
     }
 
-    public Car(String make, String model, Integer year, String color, String vin) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.color = color;
-        this.vin = vin;
-    }
+//    public CarDTO(String make, String model, Integer year, String color, String vin) {
+//        this.make = make;
+//        this.model = model;
+//        this.year = year;
+//        this.color = color;
+//        this.vin = vin;
+//    }
 
-    public Car(Integer carId, String make, String model, Integer year, String color, String vin) {
+    public CarDTO(Integer carId, String make, String model, Integer year, String color, String vin) {
         this.carId = carId;
         this.make = make;
         this.model = model;
@@ -74,5 +74,14 @@ public class Car {
 
     public void setVin(String vin) {
         this.vin = vin;
+    }
+
+    public Integer getId() {
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Car ID: %d, Make: %s, Model: %s, Year: %d, Color: %s, VIN: %s", carId, make, model, year, color, vin);
     }
 }

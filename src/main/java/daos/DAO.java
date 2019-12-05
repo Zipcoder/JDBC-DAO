@@ -2,27 +2,16 @@ package daos;
 
 import java.util.List;
 
-public interface DAO {
+public interface DAO <T>{
 
-    public <T> T findById(Integer id);
+    T findById(Integer id);
 
-    public List findAll();
+    List findAll();
 
-    public <T> T update (T dto);
+    String update (T dto, Integer id);
 
-    public <T> T create (T dto);
+    String create (T dto);
 
-    public void delete (Integer id);
+    Boolean delete (Integer id);
 
-
-//    String simpleQuery "select * from .car"
-//
-//    //iterate results column names match yoiur data
-//    parameterized query
-//            prepared statement connection.preparedStatement
-//    data grep
-//
-//            running sql commdands thru java
-//
-//    Extracting methods out behind the DAO
 }
