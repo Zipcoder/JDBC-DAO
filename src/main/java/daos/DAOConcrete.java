@@ -41,17 +41,18 @@ public class DAOConcrete implements DAO <CarDTO> {      //This class does CRUD o
         return null;
     }
 
-    public String update(CarDTO dto, Integer id) {
+    public String update(CarDTO dto) {
         Connection connection = ConnectToDB.getConnection();
 
         try {
-            PreparedStatement ps = connection.prepareStatement("update car set carid=?, make=?, model=?, yearbuilt=?, color =?, vin=? where id=" + id);
-            ps.setInt(1, dto.getId());
-            ps.setString(2, dto.getMake());
-            ps.setString(3, dto.getModel());
-            ps.setInt(4, dto.getYear());
-            ps.setString(5, dto.getColor());
-            ps.setString(6, dto.getVin());
+            PreparedStatement ps = connection.prepareStatement("update car set  make=?, model=?, yearbuilt=?, color =?, vin=? where carid=?");
+
+            ps.setString(1, dto.getMake());
+            ps.setString(2, dto.getModel());
+            ps.setInt(3, dto.getYear());
+            ps.setString(4, dto.getColor());
+            ps.setString(5, dto.getVin());
+            ps.setInt(6, dto.getCarId());
             int i = ps.executeUpdate();
 
             if (i == 1) {

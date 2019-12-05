@@ -8,7 +8,7 @@ public interface DAO <T>{
 
     List findAll();
 
-    String update (T dto, Integer id);
+    String update (T dto);
 
     String create (T dto);
 

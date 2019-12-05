@@ -11,13 +11,13 @@ public class CarDTO implements DTO {
     public CarDTO() {
     }
 
-//    public CarDTO(String make, String model, Integer year, String color, String vin) {
-//        this.make = make;
-//        this.model = model;
-//        this.year = year;
-//        this.color = color;
-//        this.vin = vin;
-//    }
+    public CarDTO(String make, String model, Integer year, String color, String vin) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.color = color;
+        this.vin = vin;
+    }
 
     public CarDTO(Integer carId, String make, String model, Integer year, String color, String vin) {
         this.carId = carId;

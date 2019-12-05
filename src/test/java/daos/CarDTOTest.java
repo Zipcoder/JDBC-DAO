@@ -42,8 +42,8 @@ public class CarDTOTest {
     @Test
     public void testUpdate () {
         String expected = "Car ID: 7, Make: Toyota, Model: Echo, Year: 2001, Color: Green Patina, VIN: 2001TE";
-        CarDTO carToModify = new CarDTO(7, "Toyota", "Echo", 2001, "Green", "2001TE");
-        String actual = daoConcrete.update(carToModify, 7);
+        CarDTO carToModify = new CarDTO(7, "Toyota", "Echo", 2001, "Green Patina", "2001TE");
+        String actual = daoConcrete.update(carToModify);
         Assert.assertEquals(expected, actual);
     }
 
