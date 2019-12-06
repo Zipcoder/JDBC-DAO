@@ -6,9 +6,9 @@ import models.Car;
 import java.util.List;
 
 public interface Dao<T> {
-    public T findCarByid(int id);
-    public List<T> findAll();
-    public T update(Car dto);
-    public T create(Car dto);
-    public T delete (int id);
+    T findCarById(int id);
+    List<T> findAll();
+    T update(Car dto);
+    T create(Car dto);
+    void delete (int id);
 }

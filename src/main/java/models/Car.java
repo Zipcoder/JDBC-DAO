@@ -4,7 +4,7 @@ public class Car {
    private int id;
    private String make;
    private String model;
-   private int Year;
+   private int year;
    private String color;
    private String vin;
 
@@ -17,7 +17,7 @@ public class Car {
         this.id = id;
         this.make = make;
         this.model = model;
-        Year = year;
+        this.year = year;
         this.color = color;
         this.vin = vin;
     }
@@ -47,11 +47,11 @@ public class Car {
     }
 
     public int getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(int year) {
-        Year = year;
+        this.year = year;
     }
 
     public String getColor() {

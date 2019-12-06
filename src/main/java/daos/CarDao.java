@@ -9,14 +9,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CarDao implements Dao {
-    public Car findCarByid(int id) {
+public class CarDao implements Dao<Car> {
+
+
+    public Car findCarById(int id) {
         Connection connection = ConnectionFactory.getConnection();
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM Car2 WHERE id=" + id);
             if (rs.next()) {
-                extractCarFromResultSet(rs);
+                return extractCarFromResultSet(rs);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -42,7 +44,7 @@ public class CarDao implements Dao {
         return null;
     }
 
-    public Boolean create(Car car) {
+    public Car create(Car car) {
         Connection connection = ConnectionFactory.getConnection();
         try {
             PreparedStatement ps = connection.prepareStatement("INSERT INTO Car2 VALUES ( ?, ?, ?, ?, ?, ?)");
@@ -54,19 +56,19 @@ public class CarDao implements Dao {
             ps.setString(6,car.getColor());
             int i = ps.executeUpdate();
             if(i == 1) {
-                return true;
+                return car;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return null;
     }
 
 
-    public Boolean update(Car car) {
+    public Car update(Car car) {
         Connection connection = ConnectionFactory.getConnection();
             try {
-                PreparedStatement ps = connection.prepareStatement("UPDATE Car2 SET make=?, model=?, Year=?, vin=?, color=?, WHERE id=?)");
+                PreparedStatement ps = connection.prepareStatement("UPDATE Car2 SET make=?, model=?, year=?, vin=?, color=? WHERE id=?");
 
                 ps.setString(1, car.getMake());
                 ps.setString(2, car.getModel());
@@ -76,18 +78,28 @@ public class CarDao implements Dao {
                 ps.setInt(6, car.getId());
                 int i = ps.executeUpdate();
                 if(i == 1) {
-                    return true;
+                    return car;
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-            return false;
+            return null;
         }
 
 
-    public Boolean delete(int id) {
-        return null;
-    }
+    public void delete(int id) {
+            Connection connection = ConnectionFactory.getConnection();
+            try {
+                Statement stmt = connection.createStatement();
+                int i = stmt.executeUpdate("DELETE FROM Car2 WHERE id=" + id);
+
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+        }
+
 
     private Car extractCarFromResultSet(ResultSet rs) throws SQLException {
         Car car = new Car();
@@ -95,7 +107,7 @@ public class CarDao implements Dao {
         car.setMake(rs.getString("make"));
         car.setModel(rs.getString("model"));
         car.setColor(rs.getString("color"));
-        car.setYear(rs.getInt("Year"));
+        car.setYear(rs.getInt("year"));
         car.setVin(rs.getString("vin"));
         return car;
     }
