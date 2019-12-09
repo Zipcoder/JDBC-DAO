@@ -12,7 +12,7 @@ public class MovieDAO implements DAO<Movie> {
         Connection conn = ConnectionFactory.getConnection();
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Movie WHERE id=" + id);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Movies WHERE id=" + id);
 
             if (rs.next()) {
                 return extractMovieFromResultSet(rs);
@@ -28,7 +28,7 @@ public class MovieDAO implements DAO<Movie> {
 
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Movie");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Movies");
             Set movies = new HashSet();
 
             while(rs.next())
@@ -48,11 +48,12 @@ public class MovieDAO implements DAO<Movie> {
         Connection conn = ConnectionFactory.getConnection();
 
         try{
-            PreparedStatement ps = conn.prepareStatement("UPDATE Movie SET title=?, runtime=?, imdbscore=?, releaseyear=? WHERE id=?");
+            PreparedStatement ps = conn.prepareStatement("UPDATE Movies SET title=?, runtime=?, imdbscore=?, releaseyear=? WHERE id=?;");
             ps.setString(1, movie.getTitle());
             ps.setInt(2, movie.getRuntime());
             ps.setInt(3, movie.getImdbscore());
             ps.setInt(4, movie.getReleaseyear());
+            ps.setInt(5, id);
             int i = ps.executeUpdate();
 
             if(i == 1) {
@@ -68,7 +69,7 @@ public class MovieDAO implements DAO<Movie> {
         Connection conn = ConnectionFactory.getConnection();
 
         try {
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO Movie VALUES (NULL, ?, ?, ?, ?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Movies VALUES (NULL, ?, ?, ?, ?);");
             ps.setString(1, movie.getTitle());
             ps.setInt(2, movie.getRuntime());
             ps.setInt(3, movie.getImdbscore());
@@ -90,7 +91,7 @@ public class MovieDAO implements DAO<Movie> {
         try {
 
             Statement stmt = conn.createStatement();
-            int i = stmt.executeUpdate("DELETE FROM user WHERE id=" + id);
+            int i = stmt.executeUpdate("DELETE FROM Movies WHERE id=" + id);
 
             if(i == 1) {
                 return true;

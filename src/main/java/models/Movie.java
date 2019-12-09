@@ -7,6 +7,23 @@ public class Movie {
     Integer imdbscore;
     Integer releaseyear;
 
+    public Movie(String title, Integer runtime, Integer imdbscore, Integer releaseyear){
+        this.title = title;
+        this.runtime = runtime;
+        this.imdbscore = imdbscore;
+        this.releaseyear = releaseyear;
+    }
+
+    public Movie(Integer id, String title, Integer runtime, Integer imdbscore, Integer releaseyear){
+        this.id = id;
+        this.title = title;
+        this.runtime = runtime;
+        this.imdbscore = imdbscore;
+        this.releaseyear = releaseyear;
+    }
+
+    public Movie(){}
+
     public Integer getId() {
         return id;
     }
@@ -45,5 +62,11 @@ public class Movie {
 
     public void setReleaseyear(Integer releaseyear) {
         this.releaseyear = releaseyear;
+    }
+
+    @Override
+    public String toString(){
+        return String.format("%s | %s | %s | %s",
+                this.getTitle(), this.getRuntime(), this.getImdbscore(), this.getReleaseyear());
     }
 }

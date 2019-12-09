@@ -16,7 +16,7 @@ public class MovieDTO implements DTO<Movie> {
 
         try{
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT id FROM Movie ORDER BY id DESC LIMIT 1;");
+            ResultSet rs = statement.executeQuery("SELECT id FROM Movies ORDER BY id DESC LIMIT 1;");
             if(rs.next()) return rs.getInt("id");
         }catch (SQLException ex){
             ex.printStackTrace();

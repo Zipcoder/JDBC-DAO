@@ -28,5 +28,8 @@ public class ConnectionFactory {
     public static void main(String[] args) {
         Connection connection = ConnectionFactory.getConnection();
         MovieDAO mdao = new MovieDAO();
+//        for (int i = 7; i < 14; i++) {
+//            mdao.delete(i);
+//        }
     }
 }
